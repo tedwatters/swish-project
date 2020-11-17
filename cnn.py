@@ -225,7 +225,9 @@ def flatten(l):
         else:
             yield el
             
-bins = np.arange(0,3,0.1)
+bins_beta = np.arange(0,3,0.1)
+bins_preact = np.arange(-5,5,0.1)
+
             
 swish1_beta = list(flatten(swish1_beta))
 swish2_beta = list(flatten(swish2_beta))
@@ -237,7 +239,7 @@ swish2_preact = list(flatten(swish2_preact))
 swish3_preact = list(flatten(swish3_preact))
 swish4_preact = list(flatten(swish4_preact))
 
-plt.hist(x=swish1_beta[0], bins=bins, alpha=0.7, rwidth=0.85)
+plt.hist(x=swish1_beta[0], bins=bins_beta, alpha=0.7, rwidth=0.85)
 plt.grid(axis='y', alpha=0.75)
 plt.xlabel('Value')
 plt.ylabel('Frequency')
@@ -248,6 +250,90 @@ plt.ylim(ymax=np.ceil(maxfreq / 10) * 10 if maxfreq % 10 else maxfreq + 10)
 plt.figure(1)
 
 plt.savefig('cnn_cifar_10_beta1.png', bbox_inches='tight')
+
+plt.hist(x=swish2_beta[0], bins=bins_beta, alpha=0.7, rwidth=0.85)
+plt.grid(axis='y', alpha=0.75)
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+plt.title('Trained Betas - Swish Layer 2')
+maxfreq = n.max()
+# Set a clean upper y-axis limit.
+plt.ylim(ymax=np.ceil(maxfreq / 10) * 10 if maxfreq % 10 else maxfreq + 10)
+plt.figure(2)
+
+plt.savefig('cnn_cifar_10_beta2.png', bbox_inches='tight')
+
+plt.hist(x=swish3_beta[0], bins=bins_beta, alpha=0.7, rwidth=0.85)
+plt.grid(axis='y', alpha=0.75)
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+plt.title('Trained Betas - Swish Layer 3')
+maxfreq = n.max()
+# Set a clean upper y-axis limit.
+plt.ylim(ymax=np.ceil(maxfreq / 10) * 10 if maxfreq % 10 else maxfreq + 10)
+plt.figure(3)
+
+plt.savefig('cnn_cifar_10_beta3.png', bbox_inches='tight')
+
+plt.hist(x=swish4_beta[0], bins=bins_beta, alpha=0.7, rwidth=0.85)
+plt.grid(axis='y', alpha=0.75)
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+plt.title('Trained Betas - Swish Layer 4')
+maxfreq = n.max()
+# Set a clean upper y-axis limit.
+plt.ylim(ymax=np.ceil(maxfreq / 10) * 10 if maxfreq % 10 else maxfreq + 10)
+plt.figure(4)
+
+plt.savefig('cnn_cifar_10_beta4.png', bbox_inches='tight')
+
+plt.hist(x=swish1_preact[0], bins=bins_preact, alpha=0.7, rwidth=0.85)
+plt.grid(axis='y', alpha=0.75)
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+plt.title('Preactivations - Swish Layer 1')
+maxfreq = n.max()
+# Set a clean upper y-axis limit.
+plt.ylim(ymax=np.ceil(maxfreq / 10) * 10 if maxfreq % 10 else maxfreq + 10)
+plt.figure(5)
+
+plt.savefig('cnn_cifar_10_preact1.png', bbox_inches='tight')
+
+plt.hist(x=swish2_preact[0], bins=bins_preact, alpha=0.7, rwidth=0.85)
+plt.grid(axis='y', alpha=0.75)
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+plt.title('Preactivations - Swish Layer 2')
+maxfreq = n.max()
+# Set a clean upper y-axis limit.
+plt.ylim(ymax=np.ceil(maxfreq / 10) * 10 if maxfreq % 10 else maxfreq + 10)
+plt.figure(6)
+
+plt.savefig('cnn_cifar_10_preact2.png', bbox_inches='tight')
+
+plt.hist(x=swish3_preact[0], bins=bins_preact, alpha=0.7, rwidth=0.85)
+plt.grid(axis='y', alpha=0.75)
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+plt.title('Preactivations - Swish Layer 3')
+maxfreq = n.max()
+# Set a clean upper y-axis limit.
+plt.ylim(ymax=np.ceil(maxfreq / 10) * 10 if maxfreq % 10 else maxfreq + 10)
+plt.figure(7)
+
+plt.savefig('cnn_cifar_10_preact3.png', bbox_inches='tight')
+
+plt.hist(x=swish4_preact[0], bins=bins_preact, alpha=0.7, rwidth=0.85)
+plt.grid(axis='y', alpha=0.75)
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+plt.title('Preactivations - Swish Layer 4')
+maxfreq = n.max()
+# Set a clean upper y-axis limit.
+plt.ylim(ymax=np.ceil(maxfreq / 10) * 10 if maxfreq % 10 else maxfreq + 10)
+plt.figure(8)
+
+plt.savefig('cnn_cifar_10_preact4.png', bbox_inches='tight')
 
 
 
