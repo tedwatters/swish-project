@@ -62,10 +62,10 @@ Get data
 '''
 (train_ds,test_ds) = tfds.load('svhn_cropped', split=['train', 'test'])
 
-train_labels = [x['label'].numpy() for x in train_ds]
-train_images = [x['image'].numpy()/255 for x in train_ds]
-test_labels = [x['label'].numpy() for x in test_ds]
-test_images = [x['image'].numpy()/255 for x in test_ds]
+train_labels = [x['label'] for x in train_ds]
+train_images = [x['image']/255 for x in train_ds]
+test_labels = [x['label'] for x in test_ds]
+test_images = [x['image']/255 for x in test_ds]
 
 '''
 ReLU model
