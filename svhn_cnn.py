@@ -15,7 +15,7 @@ from collections.abc import Iterable
 
 import numpy as np
 
-
+import tensorflow_datasets as tfds
 
 '''
 Define Swish Function
@@ -60,14 +60,15 @@ class Swish(Layer):
 '''
 Get data
 '''
+(train_images, train_labels), (test_images, test_labels) = tfds.load('svhn_cropped', split=['train', 'test'])
 
-(train_images, train_labels), (test_images, test_labels) = datasets.cifar10.load_data()
+
+
+#(train_images, train_labels), (test_images, test_labels) = datasets.svhn_cropped.load_data()
 
 # Normalize pixel values to be between 0 and 1
 train_images, test_images = train_images / 255.0, test_images / 255.0
 
-class_names = ['airplane', 'automobile', 'bird', 'cat', 'deer',
-               'dog', 'frog', 'horse', 'ship', 'truck']
 
 
 '''
@@ -147,7 +148,7 @@ plt.legend(loc='lower right')
 r_test_loss, r_test_acc = r_model.evaluate(test_images,  test_labels, verbose=2)
 s_test_loss, s_test_acc = s_model.evaluate(test_images,  test_labels, verbose=2)
 
-plt.savefig('cnn_cifar_10.png', bbox_inches='tight')
+plt.savefig('cnn_svhn.png', bbox_inches='tight')
 
   
 
@@ -234,7 +235,7 @@ plt.xlabel('Value')
 plt.ylabel('Frequency')
 plt.title('Trained Betas - Swish Layer 1')
 
-plt.savefig('cnn_cifar_10_beta1.png', bbox_inches='tight')
+plt.savefig('cnn_svhn_beta1.png', bbox_inches='tight')
 
 plt.figure(2)
 plt.hist(x=swish2_beta, bins=bins_beta, alpha=0.7, rwidth=0.85)
@@ -243,7 +244,7 @@ plt.xlabel('Value')
 plt.ylabel('Frequency')
 plt.title('Trained Betas - Swish Layer 2')
 
-plt.savefig('cnn_cifar_10_beta2.png', bbox_inches='tight')
+plt.savefig('cnn_svhn_beta2.png', bbox_inches='tight')
 
 plt.figure(3)
 plt.hist(x=swish3_beta, bins=bins_beta, alpha=0.7, rwidth=0.85)
@@ -252,7 +253,7 @@ plt.xlabel('Value')
 plt.ylabel('Frequency')
 plt.title('Trained Betas - Swish Layer 3')
 
-plt.savefig('cnn_cifar_10_beta3.png', bbox_inches='tight')
+plt.savefig('cnn_svhn_beta3.png', bbox_inches='tight')
 
 plt.figure(4)
 plt.hist(x=swish4_beta, bins=bins_beta, alpha=0.7, rwidth=0.85)
@@ -261,7 +262,7 @@ plt.xlabel('Value')
 plt.ylabel('Frequency')
 plt.title('Trained Betas - Swish Layer 4')
 
-plt.savefig('cnn_cifar_10_beta4.png', bbox_inches='tight')
+plt.savefig('cnn_svhn_beta4.png', bbox_inches='tight')
 
 plt.figure(5)
 plt.hist(x=swish1_preact, bins=bins_preact, alpha=0.7, rwidth=0.85)
@@ -270,7 +271,7 @@ plt.xlabel('Value')
 plt.ylabel('Frequency')
 plt.title('Preactivations - Swish Layer 1')
 
-plt.savefig('cnn_cifar_10_preact1.png', bbox_inches='tight')
+plt.savefig('cnn_svhn_preact1.png', bbox_inches='tight')
 
 plt.figure(6)
 plt.hist(x=swish2_preact, bins=bins_preact, alpha=0.7, rwidth=0.85)
@@ -279,7 +280,7 @@ plt.xlabel('Value')
 plt.ylabel('Frequency')
 plt.title('Preactivations - Swish Layer 2')
 
-plt.savefig('cnn_cifar_10_preact2.png', bbox_inches='tight')
+plt.savefig('cnn_svhn_preact2.png', bbox_inches='tight')
 
 plt.figure(7)
 plt.hist(x=swish3_preact, bins=bins_preact, alpha=0.7, rwidth=0.85)
@@ -288,7 +289,7 @@ plt.xlabel('Value')
 plt.ylabel('Frequency')
 plt.title('Preactivations - Swish Layer 3')
 
-plt.savefig('cnn_cifar_10_preact3.png', bbox_inches='tight')
+plt.savefig('cnn_svhn_preact3.png', bbox_inches='tight')
 
 plt.figure(8)
 plt.hist(x=swish4_preact, bins=bins_preact, alpha=0.7, rwidth=0.85)
@@ -297,7 +298,7 @@ plt.xlabel('Value')
 plt.ylabel('Frequency')
 plt.title('Preactivations - Swish Layer 4')
 
-plt.savefig('cnn_cifar_10_preact4.png', bbox_inches='tight')
+plt.savefig('cnn_svhn_preact4.png', bbox_inches='tight')
 
 
 
