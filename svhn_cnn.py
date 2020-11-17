@@ -310,57 +310,20 @@ plt.savefig('cnn_svhn_preact4.png', bbox_inches='tight')
 
 
 print('For Swish Layer 1')
-mean_value = np.mean(swish1_beta)
+beta_value = swish1_beta
+preact_value = swish1_preact
+
+mean_value = np.mean(beta_value)
 print('Mean of Beta: {}'.format(mean_value))
-print('Minimum x where Swish is increasing: {}'.format(-1.28/np.mean(swish1_beta)))
+print('Minimum x where Swish is increasing: {}'.format(-1.28/np.mean(beta_value)))
 
 count = 0
-for i in swish1_preact: 
-    if i <  mean_value: 
+for i in preact_value: 
+    if i <  -1.28/np.mean(beta_value): 
         count = count + 1
 
-print('% of Preactivations less than minimum x: {}'.format(count/len(swish1_preact)))
-print('Min Preactivation - Beta: {}'.format(min(swish1_preact)-mean_value))
-
-print('For Swish Layer 2')
-mean_value = np.mean(swish2_beta)
-print('Mean of Beta: {}'.format(mean_value))
-print('Minimum x where Swish is increasing: {}'.format(-1.28/np.mean(swish2_beta)))
-
-count = 0
-for i in swish2_preact: 
-    if i <  mean_value: 
-        count = count + 1
-
-print('% of Preactivations less than minimum x: {}'.format(count/len(swish2_preact)))
-print('Min Preactivation - Beta: {}'.format(min(swish2_preact)-mean_value))
-
-
-print('For Swish Layer 3')
-mean_value = np.mean(swish3_beta)
-print('Mean of Beta: {}'.format(mean_value))
-print('Minimum x where Swish is increasing: {}'.format(-1.28/np.mean(swish3_beta)))
-
-count = 0
-for i in swish3_preact: 
-    if i <  mean_value: 
-        count = count + 1
-
-print('% of Preactivations less than minimum x: {}'.format(count/len(swish3_preact)))
-print('Min Preactivation - Beta: {}'.format(min(swish3_preact)-mean_value))
-
-print('For Swish Layer 4')
-mean_value = np.mean(swish4_beta)
-print('Mean of Beta: {}'.format(mean_value))
-print('Minimum x where Swish is increasing: {}'.format(-1.28/np.mean(swish4_beta)))
-
-count = 0
-for i in swish4_preact: 
-    if i <  mean_value: 
-        count = count + 1
-
-print('% of Preactivations less than minimum x: {}'.format(count/len(swish4_preact)))
-print('Min Preactivation - Beta: {}'.format(min(swish4_preact)-mean_value))
+print('% of Preactivations less than minimum x: {}'.format(count/len(preact_value)))
+print('Min Preactivation - Beta: {}'.format(min(preact_value)--1.28/np.mean(beta_value)))
 
 
 
