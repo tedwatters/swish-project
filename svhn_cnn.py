@@ -60,16 +60,12 @@ class Swish(Layer):
 '''
 Get data
 '''
-(train_images, train_labels), (test_images, test_labels) = tfds.load('svhn_cropped', split=['train', 'test'])
+(train_ds,test_ds) = tfds.load('svhn_cropped', split=['train', 'test'])
 
-
-
-#(train_images, train_labels), (test_images, test_labels) = datasets.svhn_cropped.load_data()
-
-# Normalize pixel values to be between 0 and 1
-train_images, test_images = train_images / 255.0, test_images / 255.0
-
-
+train_labels = [x['label'].numpy() for x in train_ds]
+train_images = [x['image'].numpy()/255 for x in train_ds]
+test_labels = [x['label'].numpy() for x in test_ds]
+test_images = [x['image'].numpy()/255 for x in test_ds]
 
 '''
 ReLU model
