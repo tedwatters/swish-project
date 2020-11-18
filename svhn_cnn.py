@@ -342,7 +342,7 @@ for i in preact_value:
 print('% of Preactivations less than minimum x: {}'.format(count/len(preact_value)),file=f)
 print('Min Preactivation - Beta: {}'.format(min(preact_value)--1.28/np.mean(beta_value)),file=f)
 
-print('For Swish Layer 3')
+print('For Swish Layer 3',file=f)
 beta_value = swish3_beta
 preact_value = swish3_preact
 
@@ -358,7 +358,7 @@ for i in preact_value:
 print('% of Preactivations less than minimum x: {}'.format(count/len(preact_value)),file=f)
 print('Min Preactivation - Beta: {}'.format(min(preact_value)--1.28/np.mean(beta_value)),file=f)
 
-print('For Swish Layer 4')
+print('For Swish Layer 4',file=f)
 beta_value = swish4_beta
 preact_value = swish4_preact
 
