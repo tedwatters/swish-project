@@ -300,69 +300,73 @@ plt.title('Preactivations - Swish Layer 4')
 plt.savefig('cnn_cifar_10_preact4.png', bbox_inches='tight')
 
 
-print('For Swish Layer 1')
+f = open('svhn_cnn.txt', 'w')
+
+print('For Swish Layer 1',file=f)
 beta_value = swish1_beta
 preact_value = swish1_preact
 
 mean_value = np.mean(beta_value)
-print('Mean of Beta: {}'.format(mean_value))
-print('Minimum x where Swish is increasing: {}'.format(-1.28/np.mean(beta_value)))
+print('Mean of Beta: {}'.format(mean_value),file=f)
+print('Minimum x where Swish is increasing: {}'.format(-1.28/np.mean(beta_value)),file=f)
 
 count = 0
 for i in preact_value: 
     if i <  -1.28/np.mean(beta_value): 
         count = count + 1
 
-print('% of Preactivations less than minimum x: {}'.format(count/len(preact_value)))
-print('Min Preactivation - Beta: {}'.format(min(preact_value)--1.28/np.mean(beta_value)))
+print('% of Preactivations less than minimum x: {}'.format(count/len(preact_value)),file=f)
+print('Min Preactivation - Beta: {}'.format(min(preact_value)--1.28/np.mean(beta_value)),file=f)
 
-print('For Swish Layer 2')
+print('For Swish Layer 2',file=f)
 beta_value = swish2_beta
 preact_value = swish2_preact
 
 mean_value = np.mean(beta_value)
-print('Mean of Beta: {}'.format(mean_value))
-print('Minimum x where Swish is increasing: {}'.format(-1.28/np.mean(beta_value)))
+print('Mean of Beta: {}'.format(mean_value),file=f)
+print('Minimum x where Swish is increasing: {}'.format(-1.28/np.mean(beta_value)),file=f)
 
 count = 0
 for i in preact_value: 
     if i <  -1.28/np.mean(beta_value): 
         count = count + 1
 
-print('% of Preactivations less than minimum x: {}'.format(count/len(preact_value)))
-print('Min Preactivation - Beta: {}'.format(min(preact_value)--1.28/np.mean(beta_value)))
+print('% of Preactivations less than minimum x: {}'.format(count/len(preact_value)),file=f)
+print('Min Preactivation - Beta: {}'.format(min(preact_value)--1.28/np.mean(beta_value)),file=f)
 
 print('For Swish Layer 3')
 beta_value = swish3_beta
 preact_value = swish3_preact
 
 mean_value = np.mean(beta_value)
-print('Mean of Beta: {}'.format(mean_value))
-print('Minimum x where Swish is increasing: {}'.format(-1.28/np.mean(beta_value)))
+print('Mean of Beta: {}'.format(mean_value),file=f)
+print('Minimum x where Swish is increasing: {}'.format(-1.28/np.mean(beta_value)),file=f)
 
 count = 0
 for i in preact_value: 
     if i <  -1.28/np.mean(beta_value): 
         count = count + 1
 
-print('% of Preactivations less than minimum x: {}'.format(count/len(preact_value)))
-print('Min Preactivation - Beta: {}'.format(min(preact_value)--1.28/np.mean(beta_value)))
+print('% of Preactivations less than minimum x: {}'.format(count/len(preact_value)),file=f)
+print('Min Preactivation - Beta: {}'.format(min(preact_value)--1.28/np.mean(beta_value)),file=f)
 
 print('For Swish Layer 4')
 beta_value = swish4_beta
 preact_value = swish4_preact
 
 mean_value = np.mean(beta_value)
-print('Mean of Beta: {}'.format(mean_value))
-print('Minimum x where Swish is increasing: {}'.format(-1.28/np.mean(beta_value)))
+print('Mean of Beta: {}'.format(mean_value),file=f)
+print('Minimum x where Swish is increasing: {}'.format(-1.28/np.mean(beta_value)),file=f)
 
 count = 0
 for i in preact_value: 
     if i <  -1.28/np.mean(beta_value): 
         count = count + 1
 
-print('% of Preactivations less than minimum x: {}'.format(count/len(preact_value)))
-print('Min Preactivation - Beta: {}'.format(min(preact_value)--1.28/np.mean(beta_value)))
+print('% of Preactivations less than minimum x: {}'.format(count/len(preact_value)),file=f)
+print('Min Preactivation - Beta: {}'.format(min(preact_value)--1.28/np.mean(beta_value)),file=f)
+
+f.close()
 
 
 
